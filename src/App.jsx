@@ -1,10 +1,11 @@
 import './App.css'
+import { useState } from "react";
 
 function App() {
  const [name, setName] = useState('Sofía');
  const [newName, setNewName] = useState('');
 
- const cambiarNombreClick = (nombreSeleccionado) => {
+ const handleChangeName = (nombreSeleccionado) => {
     setName(nombreSeleccionado);
  };
 
@@ -17,15 +18,15 @@ function App() {
  };
 
  return (
-    <div>
+    <>
     <h2>Teacher Name: {name}</h2>
     <ul>
-        <li onClick={() => cambiarNombreClick("Data")}>Data</li>
-        <li onClick={() => cambiarNombreClick("Reyes")}>Reyes</li>
-        <li onClick={() => cambiarNombreClick("Yolanda")}>Yolanda</li>
+        <li onClick={() => handleChangeName("Data")}>Data</li>
+        <li onClick={() => handleChangeName("Reyes")}>Reyes</li>
+        <li onClick={() => handleChangeName("Yolanda")}>Yolanda</li>
     </ul>
 
-    <form onSubmit={changeName}>
+    <form onSubmit={cambiarNombre}>
         <input
           type="text"
           value={newName}
@@ -34,7 +35,7 @@ function App() {
         />
         <button type="submit">Add</button>
     </form>
-    </div>
+    </>
  );
 }
 
